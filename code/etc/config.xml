@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<config>
+
+    <modules>
+        <Digidennis_Dkshipping>
+            <version>0.1.0</version>
+        </Digidennis_Dkshipping>
+    </modules>
+
+
+    <default>
+        <carriers>
+            <dkshipping>
+                <active>1</active>
+                <model>dkshipping/carrier_dkshipping</model>
+                <title>Levering</title>
+                <specificerrmsg>Postnord</specificerrmsg>
+            </dkshipping>
+        </carriers>
+    </default>
+
+    <global>
+        <resources>
+            <dkshipping_setup>
+                <setup>
+                    <module>Digidennis_Dkshipping</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </dkshipping_setup>
+        </resources>
+        <models>
+            <dkshipping>
+                <class>Digidennis_Dkshipping_Model</class>
+            </dkshipping>
+        </models>
+        <helpers>
+            <dkshipping>
+                <class>Digidennis_Dkshipping_Helper</class>
+            </dkshipping>
+            <shipping>
+                <rewrite>
+                    <data>Digidennis_Dkshipping_Helper_Data</data>
+                </rewrite>
+            </shipping>
+        </helpers>
+        <sales>
+            <shipping>
+                <carriers>
+                    <dkshipping>Digidennis_Dkshipping_Model_Carrier_Dkshipping</dkshipping>
+                </carriers>
+            </shipping>
+        </sales>
+    </global>
+
+</config>
