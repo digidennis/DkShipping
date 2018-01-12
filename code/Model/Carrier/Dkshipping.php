@@ -30,7 +30,7 @@ class Digidennis_Dkshipping_Model_Carrier_Dkshipping extends Mage_Shipping_Model
     {
         $rate = Mage::getModel('shipping/rate_result_method');
         $rate->setCarrier($this->_code);
-        $rate->setCarrierTitle($this->getConfigData('title'));
+        $rate->setCarrierTitle('Afhentning, Tåstrup');
         $rate->setMethod('pickup_taastrup');
         $rate->setMethodTitle('Afhentning, Tåstrup');
         $rate->setMethodDescription('Hverdage 10:00-16:00');
@@ -43,7 +43,7 @@ class Digidennis_Dkshipping_Model_Carrier_Dkshipping extends Mage_Shipping_Model
     {
         $rate = Mage::getModel('shipping/rate_result_method');
         $rate->setCarrier($this->_code);
-        $rate->setCarrierTitle($this->getConfigData('title'));
+        $rate->setCarrierTitle('Afhentning, Ganløse');
         $rate->setMethod('pickup_ganloese');
         $rate->setMethodTitle('Afhentning, Ganløse');
         $rate->setMethodDescription('man-tor 8:00-15:00, fre 8:00-12:00');
@@ -68,7 +68,7 @@ class Digidennis_Dkshipping_Model_Carrier_Dkshipping extends Mage_Shipping_Model
          * getConfigData(config_key) returns the configuration value for the
          * carriers/[carrier_code]/[config_key]
          */
-        $rate->setCarrierTitle($this->getConfigData('title'));
+        $rate->setCarrierTitle('PostNord Home');
 
         $parcelprice = $this->getConfigData('postnordprice');
         $parcelmaxweight = floatval($this->getConfigData('postnordmaxweight'));
