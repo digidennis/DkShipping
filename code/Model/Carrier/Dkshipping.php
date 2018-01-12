@@ -20,17 +20,18 @@ class Digidennis_Dkshipping_Model_Carrier_Dkshipping extends Mage_Shipping_Model
             return $result->append($freeShippingRate);
         }
 
-        //$result->append($this->getPickUpRate());
+        $result->append($this->getPickupTaastrup());
+        $result->append($this->getPickupGanloese());
         $result->append($this->getStandardShippingRate($request));
         return $result;
     }
 
-    protected function getPickUpRate()
+    protected function getPickupTaastrup()
     {
         $rate = Mage::getModel('shipping/rate_result_method');
         $rate->setCarrier($this->_code);
         $rate->setCarrierTitle($this->getConfigData('title'));
-        $rate->setMethod('pickup');
+        $rate->setMethod('pickup_taastrup');
         $rate->setMethodTitle('Afhentning, Tåstrup');
         $rate->setMethodDescription('Hverdage 10:00-16:00');
         $rate->setPrice(0);
@@ -38,6 +39,18 @@ class Digidennis_Dkshipping_Model_Carrier_Dkshipping extends Mage_Shipping_Model
         return $rate;
     }
 
+    protected function getPickupGanloese()
+    {
+        $rate = Mage::getModel('shipping/rate_result_method');
+        $rate->setCarrier($this->_code);
+        $rate->setCarrierTitle($this->getConfigData('title'));
+        $rate->setMethod('pickup_ganloese');
+        $rate->setMethodTitle('Afhentning, Ganløse');
+        $rate->setMethodDescription('man-tor 8:00-15:00, fre 8:00-12:00');
+        $rate->setPrice(0);
+        $rate->setCost(0);
+        return $rate;
+    }
     protected function getStandardShippingRate(Mage_Shipping_Model_Rate_Request $request)
     {
         /**
@@ -86,7 +99,8 @@ class Digidennis_Dkshipping_Model_Carrier_Dkshipping extends Mage_Shipping_Model
     {
         return array(
             'postnord' => 'PostNord Home',
-            'pickup' => 'Afhentning',
+            'pickup_taastrup' => 'Afhentning, Tåstrup',
+            'pickup_ganloese' => 'Afhentning, Ganløse',
             'free_shipping' => 'Gratis Levering',
         );
     }
