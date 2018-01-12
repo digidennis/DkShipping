@@ -33,7 +33,7 @@ class Digidennis_Dkshipping_Model_Carrier_Dkshipping extends Mage_Shipping_Model
         $rate->setCarrierTitle('Afhentning');
         $rate->setMethod('pickup_taastrup');
         $rate->setMethodTitle('Tåstrup');
-        $rate->setMethodDescription('Hverdage 10:00-16:00');
+        $rate->setMethodDescription('Hverdage 10:00-16:00<br>Du får besked på email når din ordre er klar.');
         $rate->setPrice(0);
         $rate->setCost(0);
         return $rate;
@@ -46,7 +46,7 @@ class Digidennis_Dkshipping_Model_Carrier_Dkshipping extends Mage_Shipping_Model
         $rate->setCarrierTitle('Afhentning');
         $rate->setMethod('pickup_ganloese');
         $rate->setMethodTitle('Ganløse');
-        $rate->setMethodDescription('man-tor 8:00-15:00, fre 8:00-12:00');
+        $rate->setMethodDescription('man-tor 8:00-15:00<br>fre 8:00-12:00<br>Du får besked på email når din ordre er klar.');
         $rate->setPrice(0);
         $rate->setCost(0);
         return $rate;
@@ -75,7 +75,7 @@ class Digidennis_Dkshipping_Model_Carrier_Dkshipping extends Mage_Shipping_Model
         $parcelcount = ceil($request->getPackageWeight() / $parcelmaxweight);
         $rate->setMethod('postnord');
         $rate->setMethodTitle('Home');
-        $rate->setMethodDescription('Levering med Post Nord Pakkepost');
+        $rate->setMethodDescription('Levering til døren med PostNord');
         $rate->setPrice($parcelprice*$parcelcount);
         $rate->setCost($parcelprice*$parcelcount);
 
