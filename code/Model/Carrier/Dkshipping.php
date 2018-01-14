@@ -80,6 +80,7 @@ class Digidennis_Dkshipping_Model_Carrier_Dkshipping extends Mage_Shipping_Model
                     $price = $this::POSTNORD_PRICE_MAX20;
                 }
             }
+            $price += $this::POSTNORD_PRICE_ATHOME;
             $rate->setCarrierTitle('PostNord');
             $rate->setMethod('postnord');
             $rate->setMethodTitle('Home');
