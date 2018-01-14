@@ -46,7 +46,7 @@ class Digidennis_Dkshipping_Model_Carrier_Dkshipping extends Mage_Shipping_Model
         $rate->setCarrierTitle('Afhentning');
         $rate->setMethod('pickup_ganloese');
         $rate->setMethodTitle('Ganløse');
-        $rate->setMethodDescription('man-tor 8:00-15:00<br>fre 8:00-12:00<br>Du får besked på email når din ordre er klar.');
+        $rate->setMethodDescription('man-tor 8:00-15:00<br>fredag 8:00-12:00<br>Du får besked på email når din ordre er klar.');
         $rate->setPrice(0);
         $rate->setCost(0);
         return $rate;
@@ -64,20 +64,37 @@ class Digidennis_Dkshipping_Model_Carrier_Dkshipping extends Mage_Shipping_Model
          */
         $rate = Mage::getModel('shipping/rate_result_method');
         $rate->setCarrier($this->_code);
-        /**
-         * getConfigData(config_key) returns the configuration value for the
-         * carriers/[carrier_code]/[config_key]
-         */
-        $rate->setCarrierTitle('PostNord');
+        $weight = $request->getPackageWeight();
+        //$parcelprice = $this->getConfigData('postnordprice');
 
-        $parcelprice = $this->getConfigData('postnordprice');
-        $parcelmaxweight = floatval($this->getConfigData('postnordmaxweight'));
-        $parcelcount = ceil($request->getPackageWeight() / $parcelmaxweight);
-        $rate->setMethod('postnord');
-        $rate->setMethodTitle('Home');
-        $rate->setMethodDescription('Levering til døren med PostNord');
-        $rate->setPrice($parcelprice*$parcelcount);
-        $rate->setCost($parcelprice*$parcelcount);
+        //ABOVE POST NORD MAX USE FREIGHTER
+        if( $weight < $this::POSTNORD_WEIGHT_MAX)
+        {
+            //CHEAPEST
+            $price = $this::POSTNORD_PRICE_MAX5;
+            if( $weight > 5 )
+            {
+                $price = $this::POSTNORD_PRICE_MAX10;
+                if( $weight > 10 )
+                {
+                    $price = $this::POSTNORD_PRICE_MAX20;
+                }
+            }
+            $rate->setCarrierTitle('PostNord');
+            $rate->setMethod('postnord');
+            $rate->setMethodTitle('Home');
+            $rate->setMethodDescription('Levering til døren med PostNord');
+            $rate->setPrice($price);
+            $rate->setCost($price);
+        }
+        else {
+            $rate->setCarrierTitle('Fragtmand');
+            $rate->setMethod('fragtmand');
+            $rate->setMethodTitle('Til Kantsten');
+            $rate->setMethodDescription('Levering til kantsten med fragtmand, i dagtimerne.');
+            $rate->setPrice(450);
+            $rate->setCost(450);
+        }
 
         return $rate;
     }
