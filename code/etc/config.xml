@@ -19,6 +19,29 @@
         </carriers>
     </default>
 
+    <adminhtml>
+        <events>
+            <sales_order_shipment_save_before>
+                <observers>
+                    <digidennis_dkshipping_sales_order_shipment_save_before>
+                        <type>singleton</type>
+                        <class>dkshipping/observer</class>
+                        <method>salesOrderShipmentSaveBefore</method>
+                    </digidennis_dkshipping_sales_order_shipment_save_before>
+                </observers>
+            </sales_order_shipment_save_before>
+            <sales_order_shipment_save_after>
+                <observers>
+                    <digidennis_dkshipping_sales_order_shipment_save_after>
+                        <type>singleton</type>
+                        <class>dkshipping/observer</class>
+                        <method>salesOrderShipmentSaveAfter</method>
+                    </digidennis_dkshipping_sales_order_shipment_save_after>
+                </observers>
+            </sales_order_shipment_save_after>
+        </events>
+    </adminhtml>
+
     <global>
         <resources>
             <dkshipping_setup>
