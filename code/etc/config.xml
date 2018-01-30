@@ -58,6 +58,11 @@
                 <class>Digidennis_Dkshipping_Model</class>
             </dkshipping>
         </models>
+        <blocks>
+            <dkshipping>
+                <class>Digidennis_Dkshipping_Block</class>
+            </dkshipping>
+        </blocks>
         <helpers>
             <dkshipping>
                 <class>Digidennis_Dkshipping_Helper</class>
