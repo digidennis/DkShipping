@@ -12,7 +12,7 @@ class Digidennis_DkShipping_Block_Pickupinfo extends Mage_Core_Block_Template
     {
         if( $this->getOrder()->getShippingMethod() == 'dkshipping_pickup_taastrup' )
         {
-            return "Roskildvej 332A<br/>2630 Taastrup<br/><strong>Hverdage 10:00-16:00</strong>";
+            return "Roskildvej 332A<br/>2630 Tåstrup<br/><strong>Hverdage 10:00-16:00</strong>";
         }
         elseif ( $this->getOrder()->getShippingMethod() == 'dkshipping_pickup_ganloese' )
         {
