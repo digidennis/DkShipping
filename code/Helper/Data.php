@@ -27,7 +27,7 @@
 /**
  * Shipping data helper
  */
-class Digidennis_Dkshipping_Helper_Data extends Mage_Shipping_Helper_Data
+class Digidennis_DkShipping_Helper_Data extends Mage_Shipping_Helper_Data
 {
     /**
      * Shipping tracking popup URL getter

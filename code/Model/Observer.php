@@ -6,7 +6,7 @@
  * Time: 14:57
  */
 
-class Digidennis_Dkshipping_Model_Observer
+class Digidennis_DkShipping_Model_Observer
 {
     public function salesOrderShipmentSaveBefore(Varien_Event_Observer $observer)
     {

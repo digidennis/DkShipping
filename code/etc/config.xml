@@ -2,9 +2,9 @@
 <config>
 
     <modules>
-        <Digidennis_Dkshipping>
+        <Digidennis_DkShipping>
             <version>0.1.0</version>
-        </Digidennis_Dkshipping>
+        </Digidennis_DkShipping>
     </modules>
 
 

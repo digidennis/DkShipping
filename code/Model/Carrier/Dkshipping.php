@@ -1,7 +1,7 @@
 <?php
 
 
-class Digidennis_Dkshipping_Model_Carrier_Dkshipping extends Mage_Shipping_Model_Carrier_Abstract implements Mage_Shipping_Model_Carrier_Interface
+class Digidennis_DkShipping_Model_Carrier_Dkshipping extends Mage_Shipping_Model_Carrier_Abstract implements Mage_Shipping_Model_Carrier_Interface
 {
     protected $_code = 'digidennis_dkshipping';
     const POSTNORD_PRICE_MAX5 = 60;
