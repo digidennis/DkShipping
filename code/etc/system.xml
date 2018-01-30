@@ -3,7 +3,7 @@
     <sections>
         <carriers>
             <groups>
-                <dkshipping translate="label" module="dkshipping">
+                <digidennis_dkshipping translate="label" module="digidennis_dkshipping">
                     <label>Levering i Danmark</label>
                     <frontend_type>text</frontend_type>
                     <sort_order>99</sort_order>
@@ -46,7 +46,7 @@
                             <show_in_store>1</show_in_store>
                         </postnordmaxcubic>
                     </fields>
-                </dkshipping>
+                </digidennis_dkshipping>
             </groups>
         </carriers>
     </sections>
