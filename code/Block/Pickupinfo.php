@@ -8,8 +8,16 @@ class Digidennis_DkShipping_Block_Pickupinfo extends Mage_Core_Block_Template
         $this->setTemplate('digidennis/dkshipping/pickupinfo.phtml');
     }
 
-    public function getAddress($shipment, $order)
+    public function getAddress($order)
     {
-        return $order->getShippingMethod();
+        if( $order->getShippingMethod() == 'dkshipping_pickup_taastrup' )
+        {
+            return "Roskildvej 332A<br/>2630 Taastrup<br/>Hverdage 10:00-16:00";
+        }
+        elseif ($order->getShippingMethod() == 'dkshipping_pickup_ganloese' )
+        {
+            return "Ringbakken 14<br/>3660 Stenløse<br/>man-tor 8:00-15:00<br/>fre 8:00-12:00";
+        }
+        return '';
     }
 }
