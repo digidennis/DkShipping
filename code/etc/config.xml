@@ -59,9 +59,9 @@
             </dkshipping>
         </models>
         <blocks>
-            <dkshipping>
+            <digidennis_dkshipping>
                 <class>Digidennis_Dkshipping_Block</class>
-            </dkshipping>
+            </digidennis_dkshipping>
         </blocks>
         <helpers>
             <dkshipping>
