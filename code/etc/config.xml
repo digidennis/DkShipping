@@ -12,7 +12,7 @@
         <carriers>
             <dkshipping>
                 <active>1</active>
-                <model>dkshipping/carrier_dkshipping</model>
+                <model>digidennis_dkshipping/carrier_dkshipping</model>
                 <title>Levering</title>
                 <specificerrmsg>Postnord</specificerrmsg>
             </dkshipping>
@@ -25,7 +25,7 @@
                 <observers>
                     <digidennis_dkshipping_sales_order_shipment_save_before>
                         <type>singleton</type>
-                        <class>dkshipping/observer</class>
+                        <class>digidennis_dkshipping/observer</class>
                         <method>salesOrderShipmentSaveBefore</method>
                     </digidennis_dkshipping_sales_order_shipment_save_before>
                 </observers>
@@ -34,7 +34,7 @@
                 <observers>
                     <digidennis_dkshipping_sales_order_shipment_save_after>
                         <type>singleton</type>
-                        <class>dkshipping/observer</class>
+                        <class>digidennis_dkshipping/observer</class>
                         <method>salesOrderShipmentSaveAfter</method>
                     </digidennis_dkshipping_sales_order_shipment_save_after>
                 </observers>
@@ -46,7 +46,7 @@
         <resources>
             <dkshipping_setup>
                 <setup>
-                    <module>Digidennis_Dkshipping</module>
+                    <module>Digidennis_DkShipping</module>
                 </setup>
                 <connection>
                     <use>core_setup</use>
@@ -55,28 +55,23 @@
         </resources>
         <models>
             <dkshipping>
-                <class>Digidennis_Dkshipping_Model</class>
+                <class>Digidennis_DkShipping_Model</class>
             </dkshipping>
         </models>
         <blocks>
             <digidennis_dkshipping>
-                <class>Digidennis_Dkshipping_Block</class>
+                <class>Digidennis_DkShipping_Block</class>
             </digidennis_dkshipping>
         </blocks>
         <helpers>
-            <dkshipping>
-                <class>Digidennis_Dkshipping_Helper</class>
-            </dkshipping>
-            <shipping>
-                <rewrite>
-                    <data>Digidennis_Dkshipping_Helper_Data</data>
-                </rewrite>
-            </shipping>
+            <digidennis_dkshipping>
+                <class>Digidennis_DkShipping_Helper</class>
+            </digidennis_dkshipping>
         </helpers>
         <sales>
             <shipping>
                 <carriers>
-                    <dkshipping>Digidennis_Dkshipping_Model_Carrier_Dkshipping</dkshipping>
+                    <digidennis_dkshipping>Digidennis_DkShipping_Model_Carrier_Dkshipping</digidennis_dkshipping>
                 </carriers>
             </shipping>
         </sales>
