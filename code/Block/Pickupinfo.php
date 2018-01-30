@@ -21,7 +21,7 @@ class Digidennis_DkShipping_Block_Pickupinfo extends Mage_Core_Block_Template
         return '';
     }
 
-    public function hasPickup($order)
+    public function hasPickup()
     {
         if( $this->getOrder()->getShippingMethod() == 'dkshipping_pickup_taastrup' ||
             $this->getOrder()->getShippingMethod() == 'dkshipping_pickup_ganloese' )
