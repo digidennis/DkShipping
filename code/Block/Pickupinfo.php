@@ -10,6 +10,6 @@ class Digidennis_DkShipping_Block_Pickupinfo extends Mage_Core_Block_Template
 
     public function getAddress($shipment, $order)
     {
-        return var_export($shipment) . var_export($order);
+        return $order->getShippingMethod();
     }
 }
