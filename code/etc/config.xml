@@ -10,12 +10,12 @@
 
     <default>
         <carriers>
-            <digidennis_dkshipping>
+            <dkshipping>
                 <active>1</active>
                 <model>digidennis_dkshipping/carrier_dkshipping</model>
                 <title>Levering</title>
                 <specificerrmsg>Postnord</specificerrmsg>
-            </digidennis_dkshipping>
+            </dkshipping>
         </carriers>
     </default>
 
