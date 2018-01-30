@@ -12,11 +12,11 @@ class Digidennis_DkShipping_Block_Pickupinfo extends Mage_Core_Block_Template
     {
         if( $this->getOrder()->getShippingMethod() == 'dkshipping_pickup_taastrup' )
         {
-            return "Roskildvej 332A<br/>2630 Taastrup<br/>Hverdage 10:00-16:00";
+            return "Roskildvej 332A<br/>2630 Taastrup<br/><br/><strong>Hverdage 10:00-16:00</strong>";
         }
         elseif ( $this->getOrder()->getShippingMethod() == 'dkshipping_pickup_ganloese' )
         {
-            return "Ringbakken 14<br/>3660 Stenløse<br/>man-tor 8:00-15:00<br/>fre 8:00-12:00";
+            return "Ringbakken 14<br/>3660 Stenløse<br/><br/><strong>man-tor 8:00-15:00<br/>fre 8:00-12:00</strong>";
         }
         return '';
     }

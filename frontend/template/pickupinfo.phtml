@@ -1,4 +1,3 @@
 <?php if($this->hasPickup()): ?>
-<h6>Du har valgt <?php echo $this->getOrder()->getShippingDescription(); ?></h6>
-<p class="dkshipping_pickupinfo">Adresse: <br/><?php echo $this->getAddress(); ?></p>
+<p class="dkshipping_pickupinfo"<?php echo $this->getAddress(); ?></p>
 <?php endif; ?>
