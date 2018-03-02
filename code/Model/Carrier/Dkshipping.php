@@ -23,6 +23,9 @@ class Digidennis_DkShipping_Model_Carrier_Dkshipping extends Mage_Shipping_Model
         $result->append($this->getPickupTaastrup());
         $result->append($this->getPickupGanloese());
         $result->append($this->getStandardShippingRate($request));
+        if (Mage::app()->getStore()->isAdmin()) {
+            $result->append($this->getForcedFragtmand());
+        }
         return $result;
     }
 
@@ -51,6 +54,20 @@ class Digidennis_DkShipping_Model_Carrier_Dkshipping extends Mage_Shipping_Model
         $rate->setCost(0);
         return $rate;
     }
+
+    protected function getForcedFragtmand()
+    {
+        $rate = Mage::getModel('shipping/rate_result_method');
+        $rate->setCarrier($this->_code);
+        $rate->setCarrierTitle('Fragtmand');
+        $rate->setMethod('fragtmand');
+        $rate->setMethodTitle('Til Kantsten');
+        $rate->setMethodDescription('Levering til kantsten med fragtmand, i dagtimerne.');
+        $rate->setPrice(450);
+        $rate->setCost(450);
+        return $rate;
+    }
+
     protected function getStandardShippingRate(Mage_Shipping_Model_Rate_Request $request)
     {
         /**
