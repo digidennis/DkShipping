@@ -28,4 +28,32 @@ class Digidennis_DkShipping_Block_Pickupinfo extends Mage_Core_Block_Template
             return true;
         return false;
     }
+
+    public function getNotSentShipmentsOnOrder($order)
+    {
+        if( !is_object($order) )
+            $order = Mage::getModel('sales/order')->load($order);
+
+        $notsentshipments = array();
+        foreach($order->getShipmentsCollection() as $shipment)
+        {
+            if(!$shipment->getEmailSent())
+                $notsentshipments[] = $shipment;
+        }
+        return $notsentshipments;
+    }
+
+    public function collectAllTracksOnOnder()
+    {
+        $tracks = array();
+        foreach($this->getOrder()->getShipmentsCollection() as $shipment)
+        {
+            foreach ($shipment->getTracksCollection() as $track )
+            {
+                $tracks[] = $track;
+            }
+        }
+        return $tracks;
+    }
+
 }

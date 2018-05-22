@@ -47,4 +47,18 @@ class Digidennis_DkShipping_Helper_Data extends Mage_Shipping_Helper_Data
         return '';
     }
 
+    public function getNotSentShipmentsOnOrder($order)
+    {
+        if( !is_object($order) )
+            $order = Mage::getModel('sales/order')->load($order);
+
+        $notsentshipments = array();
+        foreach($order->getShipmentsCollection() as $shipment)
+        {
+            if(!$shipment->getEmailSent())
+                $notsentshipments[] = $shipment;
+        }
+        return $notsentshipments;
+    }
+
 }

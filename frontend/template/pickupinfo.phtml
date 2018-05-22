@@ -1,3 +1,29 @@
-<?php if($this->hasPickup()): ?>
-<p class="dkshipping_pickupinfo"><?php echo $this->getAddress(); ?></p>
-<?php endif; ?>
+<?php switch($this->getOrder()->getShippingMethod()): case 'dkshipping_pickup_taastrup' : ?>
+    <p><strong>Din ordre er klar til afhentning</strong></p>
+    <p>Hvis du ikke allerede har afhentet din ordre så gør det venligst inden 14 dage:
+        <br>KBH SKUM ApS<br>Roskildvej 332A
+        <br>2630 Tåstrup
+        <br><strong>Hverdage 10:00-16:00</strong>
+    </p>
+<?php break; case 'dkshipping_pickup_ganloese': ?>
+    <p><strong>Din ordre er klar til afhentning</strong></p>
+    <p>Hvis du ikke allerede har afhentet din ordre så gør det venligst inden 14 dage:
+        <br>KBH SKUM ApS
+        <br>Ringbakken 14, Ganløse
+        <br>3660 Stenløse
+        <br><strong>man - tor 08:00-15:00
+            <br>fre 8:00-12:00</strong>
+    </p>
+<?php break; case 'dkshipping_fragtmand': ?>
+    <p><strong>Din ordre bliver leveret med fragtmand</strong></p>
+    <p>Vi kontakter dig for at aftale forløbet.</p>
+<?php break; case 'dkshipping_postnord': ?>
+    <p><strong>Din ordre er blevet afsendt som pakkepost med Postnord</strong></p>
+    <?php $_tracks = $this->collectAllTracksOnOnder()?>
+    <?php if(count($_tracks)) :?>
+        <p>Track din ordre hos Postnord (der kan gå op til 12 timer før den er registreret): </p>
+        <?php foreach ($_tracks as $track) : ?>
+            <p><strong>Pakkenummer: <?php echo $track->getTrackNumber(); ?></strong></p>
+        <?php endforeach; ?>
+    <?php endif; ?>
+<?php endswitch; ?>
