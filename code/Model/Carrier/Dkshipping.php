@@ -4,11 +4,11 @@
 class Digidennis_DkShipping_Model_Carrier_Dkshipping extends Mage_Shipping_Model_Carrier_Abstract implements Mage_Shipping_Model_Carrier_Interface
 {
     protected $_code = 'dkshipping';
-    const POSTNORD_PRICE_MAX5 = 60;
-    const POSTNORD_PRICE_MAX10 = 90;
-    const POSTNORD_PRICE_MAX20 = 150;
+    const POSTNORD_PRICE_MAX5 = 95;
+    const POSTNORD_PRICE_MAX10 = 132;
+    const POSTNORD_PRICE_MAX20 = 207;
     const POSTNORD_WEIGHT_MAX = 20;
-    const POSTNORD_PRICE_ATHOME = 20;
+    const POSTNORD_PRICE_ATHOME = 25;
 
     public function collectRates( Mage_Shipping_Model_Rate_Request $request )
     {
@@ -21,7 +21,6 @@ class Digidennis_DkShipping_Model_Carrier_Dkshipping extends Mage_Shipping_Model
         }
 
         $result->append($this->getPickupTaastrup());
-        $result->append($this->getPickupGanloese());
         $result->append($this->getStandardShippingRate($request));
         if (Mage::app()->getStore()->isAdmin()) {
             $result->append($this->getForcedFragtmand());
